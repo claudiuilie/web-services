@@ -1,7 +1,7 @@
 package com.home.webservices.controller;
 
 
-import com.home.webservices.models.Account;
+import com.home.webservices.entity.Account;
 import com.home.webservices.repository.AccountRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +14,6 @@ import java.util.Optional;
 
 @Controller
 public class AccountController {
-
 
     private Logger logger = LoggerFactory.getLogger(AccountController.class);
 
@@ -36,12 +35,14 @@ public class AccountController {
         return "Saved";
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(path="account/all")
     public @ResponseBody
     Iterable<Account> getAllUsers() {
         // This returns a JSON or XML with the users
         return userRepository.findAll();
     }
+
 
     @GetMapping(path="/account")
     public @ResponseBody

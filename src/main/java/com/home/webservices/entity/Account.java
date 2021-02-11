@@ -1,4 +1,4 @@
-package com.home.webservices.models;
+package com.home.webservices.entity;
 
 
 
